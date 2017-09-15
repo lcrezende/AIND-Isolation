@@ -44,8 +44,7 @@ def custom_score(game, player):
 
     own_moves = len(game.get_legal_moves(player))
     opp_moves = len(game.get_legal_moves(game.get_opponent(player)))
-    # return float(own_moves - opp_moves**2)
-    return float(own_moves**2 - opp_moves**3)
+    return float(own_moves - opp_moves**2)
 
 
 def custom_score_2(game, player):
@@ -80,7 +79,7 @@ def custom_score_2(game, player):
 
     own_moves = len(game.get_legal_moves(player))
     opp_moves = len(game.get_legal_moves(game.get_opponent(player)))
-    return float(own_moves - opp_moves**2)
+    return float(own_moves**2 - opp_moves**2)
 
 
 def custom_score_3(game, player):
@@ -115,7 +114,7 @@ def custom_score_3(game, player):
 
     own_moves = len(game.get_legal_moves(player))
     opp_moves = len(game.get_legal_moves(game.get_opponent(player)))
-    return float(own_moves**2 - opp_moves**2)
+    return float(own_moves**2 - opp_moves**3)
 
 
 class IsolationPlayer:
@@ -457,7 +456,7 @@ class AlphaBetaPlayer(IsolationPlayer):
             if v >= beta:
                 # Return current value to stop search and prune this branch
                 return v
-            # alpha recieves max from aplha and value to improve further pruning 
+            # alpha recieves max from aplha and value to improve further pruning
             alpha = max(alpha, v)
         return v
 
